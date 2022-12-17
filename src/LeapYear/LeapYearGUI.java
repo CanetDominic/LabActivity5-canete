@@ -13,6 +13,7 @@ public class LeapYearGUI extends JFrame{
         btnCheckYear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 solve();
             }
         });
