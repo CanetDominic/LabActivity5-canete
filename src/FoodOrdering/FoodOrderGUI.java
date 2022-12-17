@@ -39,34 +39,45 @@ public class FoodOrderGUI extends JFrame{
         minic.setTitle("Food Ordering System");
         minic.setVisible(true);
     }
-    double solve(){
+    double solve() {
         double result = 0;
-        if (cPizza.isSelected()){
-            result += 100;
-        }if(cBurger.isSelected()){
-            result += 80;
-        }if(cFries.isSelected()){
-            result +=65;
-        }if(cSoftdrinks.isSelected()){
-            result += 55;
-        }if(cTea.isSelected()){
-            result += 50;
-        }if(cSundae.isSelected()){
-            result += 40;
+        try {
+            if (cPizza.isSelected()) {
+                result += 100;
+            }
+            if (cBurger.isSelected()) {
+                result += 80;
+            }
+            if (cFries.isSelected()) {
+                result += 65;
+            }
+            if (cSoftdrinks.isSelected()) {
+                result += 55;
+            }
+            if (cTea.isSelected()) {
+                result += 50;
+            }
+            if (cSundae.isSelected()) {
+                result += 40;
+            }
+            ButtonGroup gwapo = new ButtonGroup();
+            gwapo.add(rbNone);
+            gwapo.add(rb5);
+            gwapo.add(rb10);
+            gwapo.add(rb15);
+            if (rb5.isSelected()) {
+                result -= 0.05 * result;
+            } else if (rb10.isSelected()) {
+                result -= 0.1 * result;
+            } else if (rb15.isSelected()) {
+                result -= 0.15 * result;
+            }
+            return result;
+        } catch (Exception dominic){
+            JOptionPane.showMessageDialog(null,"WAY DISCOUNT!");
+        }finally {
+            return result;
         }
-        ButtonGroup gwapo = new ButtonGroup();
-        gwapo.add(rbNone);
-        gwapo.add(rb5);
-        gwapo.add(rb10);
-        gwapo.add(rb15);
-        if (rb5.isSelected()){
-            result -= 0.05*result;
-        }else if(rb10.isSelected()){
-            result -= 0.1*result;
-        } else if (rb15.isSelected()) {
-            result -= 0.15*result;
-        }
-        return result;
     }
 
 }
