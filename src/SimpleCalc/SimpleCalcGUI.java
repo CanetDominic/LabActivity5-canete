@@ -12,8 +12,16 @@ public class SimpleCalcGUI extends JFrame {
     private JButton btnCompute;
     private JTextField tfResult;
 
+    SimpleCalcGUI() {
+        btnCompute.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                tfResult.setText(String.valueOf(solve()));
+            }
+        });
     }
+
 
     public static void main(String[] args) {
         SimpleCalcGUI minic = new SimpleCalcGUI();
@@ -24,6 +32,18 @@ public class SimpleCalcGUI extends JFrame {
         minic.setVisible(true);
 
     }
-
+    double solve() {
+        double result = 0;
+        if (cbOperations.getSelectedItem() == "+") {
+            result = Double.parseDouble(tfNumber1.getText()) + Double.parseDouble(tfNumber2.getText());
+        } else if (cbOperations.getSelectedItem() == "-") {
+            result = Double.parseDouble(tfNumber1.getText()) - Double.parseDouble(tfNumber2.getText());
+        } else if (cbOperations.getSelectedItem() == "*") {
+            result = Double.parseDouble(tfNumber1.getText()) * Double.parseDouble(tfNumber2.getText());
+        } else if (cbOperations.getSelectedItem() == "/") {
+            result = Double.parseDouble(tfNumber1.getText()) / Double.parseDouble(tfNumber2.getText());
+        }
+        return result;
+    }
 
 }
