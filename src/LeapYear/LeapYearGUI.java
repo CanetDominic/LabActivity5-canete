@@ -1,13 +1,22 @@
 package LeapYear;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LeapYearGUI extends JFrame{
-
     private JPanel panel1;
     private JTextField tfYear;
     private JButton btnCheckYear;
 
+    public LeapYearGUI(){
+        btnCheckYear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                solve();
+            }
+        });
+    }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Leap Year Checker");
         frame.setContentPane(new LeapYearGUI().panel1);
